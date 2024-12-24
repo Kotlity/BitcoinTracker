@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "BitcoinTracker"
 include(":app")
+include(":core:database")
 include(":core:domain")
