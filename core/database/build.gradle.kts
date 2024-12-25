@@ -50,6 +50,7 @@ dependencies {
 
     implementation(libs.bundles.coroutines)
 
+    implementation(platform(libs.koin.bom))
     implementation(libs.bundles.koin)
 
     implementation(libs.bundles.room)
