@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 interface BitcoinDollarExchangeRateEntityDao {
 
     /**
-     *  Insert BitcoinBalanceEntity into the database if it does not exist, or overwrite it with the same PrimaryKey
+     *  Insert BitcoinDollarExchangeRateEntity into the database if it does not exist, or overwrite it with the same PrimaryKey
      */
     @Upsert
     suspend fun upsertBitcoinDollarExchangeRate(entity: BitcoinDollarExchangeRateEntity)
