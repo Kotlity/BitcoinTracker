@@ -1,4 +1,4 @@
-package com.kotlity.bitcointracker.ui.theme
+package com.kotlity.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
