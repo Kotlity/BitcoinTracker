@@ -57,6 +57,11 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:database"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:network_connectivity"))
+    implementation(project(":core:presentation"))
+    implementation(project(":core:network"))
 
     implementation(libs.bundles.android.core)
 
@@ -75,14 +80,18 @@ dependencies {
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)
 
+    implementation(libs.bundles.ktor)
+
     implementation(libs.bundles.navigation)
 
     implementation(libs.threeTenabp)
 
     debugImplementation(libs.bundles.compose.debug)
 
+    testImplementation(platform(libs.koin.bom))
     testImplementation(libs.bundles.test)
 
+    androidTestImplementation(platform(libs.koin.bom))
     androidTestImplementation(libs.bundles.android.test)
     androidTestImplementation(platform(libs.androidx.compose.bom))
 }
