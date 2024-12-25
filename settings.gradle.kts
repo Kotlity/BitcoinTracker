@@ -22,4 +22,5 @@ dependencyResolutionManagement {
 rootProject.name = "BitcoinTracker"
 include(":app")
 include(":core:domain")
+include(":core:network_connectivity")
 include(":core:presentation")
