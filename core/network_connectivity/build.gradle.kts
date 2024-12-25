@@ -40,4 +40,7 @@ dependencies {
 
     implementation(platform(libs.koin.bom))
     implementation(libs.bundles.koin)
+
+    testImplementation(platform(libs.koin.bom))
+    testImplementation(libs.bundles.test)
 }
