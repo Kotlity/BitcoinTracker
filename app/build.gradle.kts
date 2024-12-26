@@ -62,6 +62,7 @@ dependencies {
     implementation(project(":core:network_connectivity"))
     implementation(project(":core:presentation"))
     implementation(project(":core:network"))
+    implementation(project(":work"))
 
     implementation(libs.bundles.android.core)
 
