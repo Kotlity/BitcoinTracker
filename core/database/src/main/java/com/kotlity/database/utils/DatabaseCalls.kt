@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 /**
  *  Helper function that catches database exceptions
  */
-internal suspend inline fun <reified T> databaseCall(
+suspend inline fun <reified T> databaseCall(
     dispatcher: CoroutineDispatcher,
     crossinline call: suspend () -> Response.Success<T>
 ): Response<T, DatabaseError> {
