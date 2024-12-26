@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BitcoinTracker</string>
+
+    <string name="balance">Your Bitcoin balance</string>
+
+    <string name="topUpBalanceTitle">Balance replenishment</string>
+    <string name="topUpBalanceDescription">Enter the amount of bitcoins you want to top up your balance with.</string>
+
+    <string name="totalValue">Total value:</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="topUpBalance">Top up balance</string>
+
+    <string name="addTransaction">Add transaction</string>
+    
+    <string name="bitcoinRate">Bitcoin rate:</string>
+
+    <string name="transactionTitle">Transaction</string>
+    <string name="transactionDescription">Enter the transaction amount.</string>
+    <string name="selectedCategory">Select category.</string>
+    <string name="add">Add</string>
+    <string name="currentBalance">Your current balance:</string>
+
+    <string name="databaseIllegalStateException">There was an error loading data. Please restart the application.</string>
+    <string name="sqliteConstraintException">This item already exists. Please check the data and try again.</string>
+    <string name="sqliteException">Error accessing data. Please try again later.</string>
+    <string name="databaseIllegalArgumentException">An error occurred while processing data. Please check the information you entered and try again.</string>
+
+    <string name="errorRequestTimeout">The request timed out.</string>
+    <string name="errorTooManyRequests">It seems like your quota is exceed.</string>
+    <string name="errorNoInternet">Oops… It seems you don\'t have an internet connection. We won\'t be able to update the data.</string>
+    <string name="errorUnknown">Something went wrong. Please try again later.</string>
+    <string name="errorSerialization">Couldn\'t serialize or deserialize data.</string>
+
+    <string name="errorSecurity">The application does not have permission to access network state.</string>
+    <string name="errorIllegalArgument">Network callback is not registered.</string>
+
+    <string name="validationBlank">The field cannot be empty.</string>
+    <string name="lessThanMinimumValue">You have entered less than the minimum value.</string>
+    <string name="greaterThanMaximumValue">You have entered more than the maximum value.</string>
+    <string name="greaterThanCurrentBalance">You cannot spend more than your current balance.</string>
+
+</resources>
