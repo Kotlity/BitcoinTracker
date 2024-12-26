@@ -6,3 +6,7 @@ import com.kotlity.domain.models.BitcoinDollarExchangeRate
 fun BitcoinDollarExchangeRateEntity.toBitcoinDollarExchangeRate(): BitcoinDollarExchangeRate {
     return BitcoinDollarExchangeRate(rate = rate)
 }
+
+fun BitcoinDollarExchangeRate.toBitcoinDollarExchangeRateEntity(): BitcoinDollarExchangeRateEntity {
+    return BitcoinDollarExchangeRateEntity(rate = rate)
+}

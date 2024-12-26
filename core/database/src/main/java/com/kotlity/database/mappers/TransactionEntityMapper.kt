@@ -12,3 +12,13 @@ fun TransactionEntity.toTransaction(): Transaction {
         timestamp = timestamp
     )
 }
+
+fun Transaction.toTransactionEntity(): TransactionEntity {
+    return TransactionEntity(
+        id = id,
+        bitcoinAmount = bitcoinAmount,
+        transactionAmount = transactionAmount,
+        category = category,
+        timestamp = timestamp
+    )
+}

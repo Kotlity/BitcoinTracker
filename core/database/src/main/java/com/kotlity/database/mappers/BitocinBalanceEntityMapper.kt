@@ -9,3 +9,10 @@ fun BitcoinBalanceEntity.toBitcoinBalance(): BitcoinBalance {
         balance = balance
     )
 }
+
+fun BitcoinBalance.toBitcoinBalanceEntity(): BitcoinBalanceEntity {
+    return BitcoinBalanceEntity(
+        amount = amount,
+        balance = balance
+    )
+}
