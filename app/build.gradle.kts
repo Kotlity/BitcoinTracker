@@ -43,9 +43,6 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
-    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -62,6 +59,7 @@ dependencies {
     implementation(project(":core:network_connectivity"))
     implementation(project(":core:presentation"))
     implementation(project(":core:network"))
+    implementation(project(":core:resources"))
     implementation(project(":work"))
     implementation(project(":feature_transactions"))
     implementation(project(":feature_add_transaction"))
