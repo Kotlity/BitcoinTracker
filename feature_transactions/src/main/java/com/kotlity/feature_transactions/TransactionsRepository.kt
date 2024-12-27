@@ -16,7 +16,7 @@ interface TransactionsRepository {
 
     suspend fun addTransaction(data: Transaction): Response<Unit, DatabaseError>
 
-    fun loadAllTransactions(): Flow<PagingData<Response<Transaction, DatabaseError>>>
+    fun loadAllTransactions(): Flow<PagingData<Transaction>>
 
     fun loadBitcoinDollarExchangeRate(): Flow<Response<BitcoinDollarExchangeRate?, DatabaseError>>
 }

@@ -15,7 +15,6 @@ fun TransactionEntity.toTransaction(): Transaction {
 
 fun Transaction.toTransactionEntity(): TransactionEntity {
     return TransactionEntity(
-        id = id,
         bitcoinAmount = bitcoinAmount,
         transactionAmount = transactionAmount,
         category = category,

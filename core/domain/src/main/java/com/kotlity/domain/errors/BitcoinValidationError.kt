@@ -7,12 +7,14 @@ sealed interface BitcoinValidationError: Error {
 
     enum class BalanceReplenishment: BitcoinValidationError {
         BLANK,
+        INVALID_VALUE,
         LESS_THAN_MINIMUM_VALUE,
         GREATER_THAN_MAXIMUM_VALUE
     }
 
     enum class Transaction: BitcoinValidationError {
         BLANK,
+        INVALID_VALUE,
         LESS_THAN_MINIMUM_VALUE,
         GREATER_THAN_CURRENT_BALANCE,
         GREATER_THAN_MAXIMUM_VALUE

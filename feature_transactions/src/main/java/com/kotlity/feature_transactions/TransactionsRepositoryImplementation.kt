@@ -3,6 +3,7 @@ package com.kotlity.feature_transactions
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import androidx.paging.map
 import com.kotlity.database.daos.BitcoinBalanceEntityDao
 import com.kotlity.database.daos.BitcoinDollarExchangeRateEntityDao
 import com.kotlity.database.daos.TransactionEntityDao
@@ -19,8 +20,9 @@ import com.kotlity.domain.errors.DatabaseError
 import com.kotlity.domain.models.BitcoinBalance
 import com.kotlity.domain.models.BitcoinDollarExchangeRate
 import com.kotlity.domain.models.Transaction
-import com.kotlity.feature_transactions.utils.mapPagingData
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 
 private const val PAGE_SIZE = 20
 class TransactionsRepositoryImplementation(
@@ -58,7 +60,7 @@ class TransactionsRepositoryImplementation(
         )
     }
 
-    override fun loadAllTransactions(): Flow<PagingData<Response<Transaction, DatabaseError>>> {
+    override fun loadAllTransactions(): Flow<PagingData<Transaction>> {
         return Pager(
             PagingConfig(
                 pageSize = PAGE_SIZE,
@@ -66,9 +68,12 @@ class TransactionsRepositoryImplementation(
             )
         ) { transactionEntityDao.loadAllTransactions() }
             .flow
-            .mapPagingData { transactionEntity ->
-                Response.Success(data = transactionEntity.toTransaction())
+            .map { pagingData ->
+                pagingData.map { entity ->
+                    entity.toTransaction()
+                }
             }
+            .flowOn(dispatcherHandler.io)
 
     }
 

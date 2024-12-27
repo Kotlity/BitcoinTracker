@@ -37,7 +37,7 @@ inline fun <T, E: error> Response<T, E>.onError(action: (E) -> Unit): Response<T
 /**
  *  Helper functions for simplified obtaining of the response from a flow
  */
-inline fun <T, E: error> Flow<Response<T, E>>.onSuccessFlow(crossinline action: (T) -> Unit): Flow<Response<T, E>> {
+inline fun <T, E: error> Flow<Response<T, E>>.onSuccessFlow(crossinline action: suspend (T) -> Unit): Flow<Response<T, E>> {
     return onEach { response ->
         if (response is Response.Success) action(response.data)
     }

@@ -3,7 +3,8 @@
 
     <string name="app_name">BitcoinTracker</string>
 
-    <string name="balance">Your Bitcoin balance</string>
+    <string name="balance">Balance:</string>
+    <string name="pcs">pcs.</string>
 
     <string name="topUpBalanceTitle">Balance replenishment</string>
     <string name="topUpBalanceDescription">Enter the amount of bitcoins you want to top up your balance with.</string>
@@ -16,6 +17,9 @@
     <string name="addTransaction">Add transaction</string>
     
     <string name="bitcoinRate">Bitcoin rate:</string>
+    
+    <string name="bitcoinsSpent">Bitcoins spent:</string>
+    <string name="bitcoinsReplenished">Bitcoins replenished:</string>
 
     <string name="transactionTitle">Transaction</string>
     <string name="transactionDescription">Enter the transaction amount.</string>
@@ -38,6 +42,7 @@
     <string name="errorIllegalArgument">Network callback is not registered.</string>
 
     <string name="validationBlank">The field cannot be empty.</string>
+    <string name="invalidValue">Invalid value.</string>
     <string name="lessThanMinimumValue">You have entered less than the minimum value.</string>
     <string name="greaterThanMaximumValue">You have entered more than the maximum value.</string>
     <string name="greaterThanCurrentBalance">You cannot spend more than your current balance.</string>
