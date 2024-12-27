@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
 object TransactionsDestination
 
 fun NavGraphBuilder.transactionsScreen(
-    onAddTransactionClick: () -> Unit,
+    onAddTransactionClick: (rate: Float, balance: Float) -> Unit,
     onShowSnackbar: suspend (String) -> Unit
 ) {
     composable<TransactionsDestination> {

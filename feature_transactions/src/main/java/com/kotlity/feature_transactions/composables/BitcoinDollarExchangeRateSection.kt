@@ -23,7 +23,7 @@ fun BitcoinDollarExchangeRateSection(
         horizontalArrangement = horizontalArrangement,
         verticalAlignment = verticalAlignment
     ) {
-        Text(text = stringResource(id = string.bitcoinRate))
-        Text(text = ((bitcoinDollarExchangeRate?.formatted) ?: "0") + "$")
+        Text(text = stringResource(id = string.bitcoinRate) + " ")
+        Text(text = ((bitcoinDollarExchangeRate?.formatted) ?: "0") + " $")
     }
 }

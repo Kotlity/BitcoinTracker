@@ -60,14 +60,14 @@ class TransactionsViewModel(private val transactionsRepository: TransactionsRepo
 
     val transactions: Flow<PagingData<TransactionListItem>> = transactionsRepository.loadAllTransactions()
         .map { pagingData -> pagingData.map { transaction -> TransactionListItem.TransactionItem(transaction = transaction.toTransactionUi()) }
-        .insertSeparators { before: TransactionListItem.TransactionItem?, after: TransactionListItem.TransactionItem? ->
-            if (after == null) return@insertSeparators null
+        .insertSeparators { before: TransactionListItem.TransactionItem?, after: TransactionListItem.TransactionItem? -> // Logic for inserting separators(day headers)
+            if (after == null) return@insertSeparators null // Last item
 
             val afterDate = after.transaction.time.value.toDisplayableDay()
-            if (before == null) return@insertSeparators TransactionListItem.SeparatorItem(date = afterDate)
+            if (before == null) return@insertSeparators TransactionListItem.SeparatorItem(date = afterDate) // First item
 
             val beforeDate = before.transaction.time.value.toDisplayableDay()
-            if (beforeDate != afterDate) return@insertSeparators TransactionListItem.SeparatorItem(date = afterDate)
+            if (beforeDate != afterDate) return@insertSeparators TransactionListItem.SeparatorItem(date = afterDate) // Different days
             else null
         }
         }

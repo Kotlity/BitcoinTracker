@@ -63,6 +63,8 @@ dependencies {
     implementation(project(":core:presentation"))
     implementation(project(":core:network"))
     implementation(project(":work"))
+    implementation(project(":feature_transactions"))
+    implementation(project(":feature_add_transaction"))
 
     implementation(libs.bundles.android.core)
 

@@ -40,7 +40,7 @@ import org.koin.androidx.compose.koinViewModel
 fun TransactionsScreen(
     modifier: Modifier = Modifier,
     transactionsViewModel: TransactionsViewModel = koinViewModel(),
-    onAddTransactionClick: () -> Unit,
+    onAddTransactionClick: (rate: Float, balance: Float) -> Unit,
     onShowSnackbar: suspend (String) -> Unit
 ) {
 
@@ -72,7 +72,7 @@ fun TransactionsContent(
     transactions: LazyPagingItems<TransactionListItem>,
     bitcoinBalanceValidationStatus: ValidationStatus,
     onAction: (TransactionsAction) -> Unit,
-    onAddTransactionClick: () -> Unit,
+    onAddTransactionClick: (rate: Float, balance: Float) -> Unit,
     onShowSnackbar: suspend (String) -> Unit
 ) {
 
@@ -99,10 +99,24 @@ fun TransactionsContent(
                 }
             )
             BitcoinDollarExchangeRateSection(
+                modifier = Modifier.padding(
+                    top = dimensionResource(id = R.dimen._10dp),
+                    end = dimensionResource(id = R.dimen._10dp)
+                ),
                 bitcoinDollarExchangeRate = transactionsState.bitcoinDollarExchangeRate
             )
         }
-        OutlinedButton(onClick = onAddTransactionClick) {
+        OutlinedButton(
+            modifier = Modifier.padding(
+                start = dimensionResource(id = R.dimen._10dp),
+                bottom = dimensionResource(id = R.dimen._10dp)
+            ),
+            onClick = {
+                val rate = transactionsState.bitcoinDollarExchangeRate?.standardFormat ?: 0f
+                val balance = transactionsState.bitcoinBalance?.displayableBalance?.standardFormat ?: 0f
+                onAddTransactionClick(rate, balance)
+            }
+        ) {
             Text(text = stringResource(id = R.string.addTransaction))
         }
         TransactionList(

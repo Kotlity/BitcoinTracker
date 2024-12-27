@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kotlity.feature_transactions"
+    namespace = "com.kotlity.feature_add_transaction"
     compileSdk = 35
 
     defaultConfig {
@@ -50,8 +50,6 @@ dependencies {
 
     implementation(platform(libs.koin.bom))
     implementation(libs.bundles.koin)
-
-    implementation(libs.bundles.paging)
 
     implementation(libs.bundles.navigation)
 

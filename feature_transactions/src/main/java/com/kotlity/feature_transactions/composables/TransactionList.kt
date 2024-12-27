@@ -5,11 +5,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Card
@@ -29,16 +31,18 @@ import com.kotlity.resources.R.*
 @Composable
 fun TransactionList(
     modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(dimensionResource(id = dimen._5dp)),
     verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(dimensionResource(id = dimen._5dp)),
     transactions: LazyPagingItems<TransactionListItem>
 ) {
 
     LazyColumn(
         modifier = modifier,
+        contentPadding = contentPadding,
         verticalArrangement = verticalArrangement
     ) {
         for (index in 0 until transactions.itemCount) {
-            when(val peekingItem = transactions.peek(index)) {
+            when(val peekingItem = transactions.peek(index)) { // Returns the presented item at the specified position, without notifying Paging of the item access that would normally trigger page loads
                 is TransactionListItem.SeparatorItem -> stickyHeader(key = peekingItem.hashCode()) {
                     val header = transactions.get(index) as TransactionListItem.SeparatorItem
                     Row(
@@ -47,6 +51,7 @@ fun TransactionList(
                             .background(MaterialTheme.colorScheme.secondary)
                     ) {
                         Text(
+                            modifier = Modifier.padding(dimensionResource(id = dimen._3dp)),
                             text = header.date,
                             color = MaterialTheme.colorScheme.onSecondary,
                             style = MaterialTheme.typography.headlineMedium
@@ -61,10 +66,14 @@ fun TransactionList(
                             .height(dimensionResource(id = dimen._100dp)),
                         shape = MaterialTheme.shapes.medium,
                         colors = CardDefaults.cardColors(
-                            containerColor = if (isTransaction) MaterialTheme.colorScheme.onErrorContainer else CardDefaults.cardColors().containerColor
+                            containerColor = if (isTransaction) MaterialTheme.colorScheme.errorContainer else CardDefaults.cardColors().containerColor
                         )
                     ) {
-                        Column(modifier = Modifier.fillMaxSize()) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(dimensionResource(id = dimen._5dp))
+                        ) {
                             Row {
                                 Text(text = (if (isTransaction) stringResource(id = string.bitcoinsSpent) else stringResource(id = string.bitcoinsReplenished))
                                         + " " + peekingItem.transaction.bitcoinAmount.toString())
